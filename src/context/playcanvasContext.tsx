@@ -47,7 +47,7 @@ export const PlaycanvasContextProvider: FC<Props> = ({ children }) => {
     document?.getElementById('pc-iframe')?.contentWindow
   );
   const isMuted = useSoundState(s => s.isMuted);
-  const messageQueue = useRef([]);
+  const messageQueue = useRef<Array<any>>([]);
   const iframeReady = useRef(false);
 
   const [isReady, setIsReady] = useState(false);
@@ -69,7 +69,6 @@ export const PlaycanvasContextProvider: FC<Props> = ({ children }) => {
     setLoadProgress(data.loaderProgress);
 
   const sendMessage = useCallback((type: FrontendEvents, data?: any) => {
-    console.log('react msg', type, data);
     if (!iframeReady.current) {
       messageQueue.current.push({
         type: type,
