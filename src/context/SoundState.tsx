@@ -4,7 +4,6 @@ import { CommonSound, Media } from '@/types';
 
 interface SoundState {
   isMuted: boolean;
-  toggleMuted: () => void;
   setMuted: (value: boolean) => void;
   sounds: {
     [key: string]: Media | string;
